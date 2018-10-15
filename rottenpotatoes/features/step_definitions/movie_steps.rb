@@ -42,9 +42,20 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
+
   fail "Unimplemented"
 end
 
-Then /I should (not)? see the following movies:/ do |movies_table|
-  fail "Unimplemented"
+Then /I should not see the following movies:/ do |movies_table|
+    movies_table.hashes.each do |movie|
+      movie_title = movie[:title]
+      step %Q{I should not see #{movie_title}}
+    end
+end 
+Then /I should see the following movies:/ do |movies_table|
+    movies_table.hashes.each do |movie|
+      movie_title = movie[:title]
+      step %Q{I should see "#{movie_title}"}
+    end
+    
 end 
