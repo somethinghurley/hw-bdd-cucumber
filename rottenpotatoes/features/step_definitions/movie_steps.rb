@@ -49,7 +49,7 @@ end
 Then /I should not see the following movies:/ do |movies_table|
     movies_table.hashes.each do |movie|
       movie_title = movie[:title]
-      step %Q{I should not see #{movie_title}}
+      step %Q{I should not see "#{movie_title}"}
     end
 end 
 Then /I should see the following movies:/ do |movies_table|
